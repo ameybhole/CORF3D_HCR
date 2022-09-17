@@ -117,7 +117,7 @@ if __name__ == '__main__':
                                                                       args.preprocessed_dataset,
                                                                       args.feature_map_2)
 
-        elif args.feature_map_1 == "RGB" or "MSX" and args.mode == "single":
+        elif args.feature_map_1 == "RGB" or args.feature_map_1 == "MSX" and args.mode == "single":
 
             dataset_1, labels, labels_list = batch_data_preprocessing(args.dataset_1,
                                                                       args.dataset_2,
@@ -147,17 +147,17 @@ if __name__ == '__main__':
     else:
         print("No Preprocessing")
 
-        if args.feature_map_1 == "RGB" and args.feature_map_2 == "CORF3D" or "TEMP3D" and \
+        if args.feature_map_1 == "RGB" and args.feature_map_2 == "CORF3D" or args.feature_map_2 == "TEMP3D" and \
                 args.mode == "fusion":
 
             dataset_1, labels, labels_list = load_images(args.dataset_1, 224)
             dataset_2, labels, labels_list = load_feature_maps(args.dataset_2, 224)
 
-        elif args.feature_map_1 == "RGB" or "MSX" and args.mode == "single":
+        elif args.feature_map_1 == "RGB" or args.feature_map_1 == "MSX" and args.mode == "single":
 
             dataset_1, labels, labels_list = load_images(args.dataset_1, 224)
 
-        elif args.feature_map_2 == "CORF3D" or "TEMP3D" and args.mode == "single":
+        elif args.feature_map_2 == "CORF3D" or args.feature_map_2 == "TEMP3D" and args.mode == "single":
 
             dataset_1, labels, labels_list = load_feature_maps(args.dataset_2, 224)
 
